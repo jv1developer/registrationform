@@ -1,0 +1,55 @@
+<html>
+    <head>
+       <title>Registration Form</title>
+    </head>
+    <body>
+      <h1>Registration Form</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action='/result' method='POST'>
+          First Name: <input type='text' name='first_name'>
+          <br>
+          Last Name: <input type='text' name='last_name'>
+          <br>
+          Birthday: <input type="date" name="birthday">
+          <br>
+          Email: <input type='text' name='email'>
+          <br>
+          Initial Password: <input type='password' name='initial_password'>
+          <br>
+          Confirm Password: <input type='password' name='confirm_password'>
+          <br>
+          Dojo Location:
+            <select name = 'location'>
+              <option value="San Jose">San Jose</option>
+              <option value="Berkeley">Berkeley</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+            </select>
+          <br>
+          Favorite Language:
+            <select name = 'language'>
+              <option value="Python">Python</option>
+              <option value="Mean">MEAN</option>
+              <option value="Java">Java</option>
+              <option value="iOS">iOS</option>
+            </select>
+          <br>
+          Comment (optional):
+          <br>
+          <textarea name ='comment'></textarea>
+          <br>
+          <input type='submit' value='Submit'>
+      </form>
+      <div>
+        <form action="/restart" method="get">
+            <input type="submit" value="Reset">
+        </form>
+      </div>
+    </body>
+</html>
